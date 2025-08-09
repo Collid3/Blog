@@ -27,7 +27,7 @@ const BlogContent = ({
         <img
           src={blog.image}
           alt=""
-          className="rounded-3xl mb-10 w-sm mx-auto"
+          className="rounded-3xl mb-10 w-xs mx-auto"
         />
 
         <div

@@ -3,11 +3,11 @@ import React from "react";
 
 const BlogHeader = ({ blog }) => {
   return (
-    <div className="text-center mt-6 text-gray-600">
+    <div className="text-center mt-4 text-gray-600">
       <p className="text-primary py-4 font-medium">
         Published on {moment(blog.createdAt).format("MMMM Do YYYY")}
       </p>
-      <h1 className="text-2xl sm:text-5xl font-semibold max-w-2xl mx-auto text-gray-800">
+      <h1 className="text-2xl sm:text-4xl font-semibold max-w-2xl mx-auto text-gray-800">
         {blog.title}
       </h1>
       <h2 className="my-5 max-w-lg truncate mx-auto">{blog.subTitle}</h2>
