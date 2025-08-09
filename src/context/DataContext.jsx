@@ -11,14 +11,18 @@ export const DataProvider = ({ children }) => {
   const [token, setToken] = useState(null);
   const [blogs, setBlogs] = useState([]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const fetchBlogs = async () => {
+    setLoading(true);
     try {
       const { data } = await axios.get("/blog");
       data.success ? setBlogs(data.blogs) : toast.error(data.message);
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -41,6 +45,7 @@ export const DataProvider = ({ children }) => {
     setBlogs,
     input,
     setInput,
+    loading,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

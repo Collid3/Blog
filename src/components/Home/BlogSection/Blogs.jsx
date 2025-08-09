@@ -6,7 +6,7 @@ import { useDataContext } from "../../../context/DataContext";
 
 const Blogs = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const { input, blogs } = useDataContext();
+  const { input, blogs, loading } = useDataContext();
 
   const filteredBlogs = () => {
     if (input === "") {
@@ -19,6 +19,15 @@ const Blogs = () => {
         blog.category.toLowerCase().includes(input.toLowerCase())
     );
   };
+
+  if (loading) {
+    return (
+      <div className="flex flex-col gap-4 items-center h-[200px] justify-center">
+        <div className="h-16 w-16 rounded-full border-4 border-gray-700 border-t-white animate-spin"></div>
+        <p>Fetching Blogs...</p>
+      </div>
+    );
+  }
 
   return (
     <section>
